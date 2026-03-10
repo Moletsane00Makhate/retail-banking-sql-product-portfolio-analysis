@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS transactions (
     status              TEXT    NOT NULL CHECK (status IN ('SUCCESS','FAILED')),
     is_suspicious       INTEGER NOT NULL DEFAULT 0 CHECK (is_suspicious IN (0,1)),
     -- Channel of initiation
-    channel             TEXT    NOT NULL CHECK (channel IN ('IN_BRANCH','USSD','WEB','SMART_APP','POS','ONLINE_PAYMENTS')),
+    channel             TEXT    NOT NULL CHECK (channel IN ('IN_BRANCH','USSD','WEB','SMART_APP','POS','ONLINE_PAYMENTS', 'SYSTEM')),
     -- Who initiated (polymorphic reference by type + id)
     initiated_by_type   TEXT    NOT NULL CHECK (initiated_by_type IN ('CUSTOMER','EMPLOYEE','DEVICE','SYSTEM')),
     initiated_by_id     INTEGER,  -- references customers/employees/devices logically
